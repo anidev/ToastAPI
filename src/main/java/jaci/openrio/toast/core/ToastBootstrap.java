@@ -56,8 +56,8 @@ public class ToastBootstrap {
 
         toastHome.mkdirs();
 
-        SysLogProxy.init();
         toastLogger = new Logger("Toast", Logger.ATTR_DEFAULT);
+        SysLogProxy.init();
 
         toastLogger.info("Slicing Loaf...");
 
