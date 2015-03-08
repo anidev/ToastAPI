@@ -14,7 +14,9 @@ Simulation is part of the Toast Core, and is designed for people working in Deve
 
 ![An early prototype of the Simulation GUI for Toast](https://raw.githubusercontent.com/Open-RIO/ToastAPI/master/doc/SimulationGUI.png)
 
-Ports such as DIO and Analog IN gain a Number Spinner, that allows the inputs to be changed. These spinners are enabled when they are registered through WPILib (DigitalInput/AnalogInput classes). Other things, such as PWM output, can be read as their raw values. This allows for the robots IO to be completely simulated. Additionally, the Simulation GUI will have support for XBox controllers and external Joysticks. In the future, simulated controllers will be supported through an optional module.  
+Ports such as DIO and Analog IN gain a Number Spinner, that allows the inputs to be changed. These spinners are enabled when they are registered through WPILib (DigitalInput/AnalogInput classes). Other things, such as PWM output, can be read as their raw values. This allows for the robots IO to be completely simulated. Additionally, the Simulation GUI will have support for XBox controllers and external Joysticks. In the future, simulated controllers will be supported through an optional module.
+
+To run in simulation mode, first compile Toast (see instructions below), then run the jar file with the "-sim" or "-simulation" argument.
 
 ## Other Tools
 Toast has support for many other tools out of the box as well. For example, Toast can load Groovy files and execute them. This means that teams can program
@@ -67,6 +69,14 @@ If you wish to build Toast from SRC and deploy it yourself, it's very simple.
 - Connect to the same WiFi network as your RoboRIO and run `gradlew deploy`
 - Congratulations! Now your RoboRIO is equipped with the Toast Core.
 - Want to remove toast? We'll miss you, but just deploy your own robot program and it will override Toast
+
+## Compiling Toast for Simulation
+- Mirror this Repo on your local machine
+- Run `gradlew wpi` to first download WPI libraries
+-   NOTE: use `./gradlew` here and in the future if you are on Linux or Mac OSX
+- Enter the `patches` directory and run `gradlew build` to build the WPILib patches
+- Leave the `patches` directory and again run `gradlew build` to build Toast
+- The jar file for Toast can be found in build/latest
 
 ## Creating Modules
 Creating Modules for Toast is really simple. Download Toast from the [releases page](https://github.com/Open-RIO/ToastAPI/releases) and unzip it.  
